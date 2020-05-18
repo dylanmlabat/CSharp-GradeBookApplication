@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace GradeBook.GradeBooks
@@ -15,7 +14,7 @@ namespace GradeBook.GradeBooks
         {
             if (Students.Count < 5)
             {
-                throw InvalidOperationException();
+                throw new InvalidOperationException("Ranked-grading requires a minimum of 5 students to work.");
             }
 
             var allGrades = Students.OrderByDescending(i => i.AverageGrade).Select(i => i.AverageGrade).ToList();
@@ -30,11 +29,6 @@ namespace GradeBook.GradeBooks
             if (averageGrade >= allGrades[(letterPercentage * 4) - 1])
                 return 'D';
             return 'F';
-        }
-
-        private Exception InvalidOperationException()
-        {
-            throw new NotImplementedException();
         }
     }
 }
