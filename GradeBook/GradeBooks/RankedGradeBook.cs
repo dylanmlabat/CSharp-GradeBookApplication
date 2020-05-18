@@ -23,7 +23,12 @@ namespace GradeBook.GradeBooks
 
             if (averageGrade >= allGrades[letterPercentage - 1])
                 return 'A';
-
+            if (averageGrade >= allGrades[(letterPercentage * 2) - 1])
+                return 'B';
+            if (averageGrade >= allGrades[(letterPercentage * 3) - 1])
+                return 'C';
+            if (averageGrade >= allGrades[(letterPercentage * 4) - 1])
+                return 'D';
             return 'F';
         }
 
